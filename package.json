@@ -1,0 +1,42 @@
+{
+  "name": "react-hook-roulette",
+  "version": "0.0.1",
+  "description": "Minimal roulette wheel component. built with React Hooks.",
+  "homepage": "https://github.com/camiha/React-Hook-Roulette",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "unbuild"
+  },
+  "keywords": [
+    "react",
+    "react-hooks",
+    "roulette",
+    "wheel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
+    "unbuild": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "react": "^18"
+  }
+}
