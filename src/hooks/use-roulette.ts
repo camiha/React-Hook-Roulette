@@ -69,7 +69,7 @@ export const useRoulette = ({
 	const onStart = useCallback(() => {
 		if (status !== "stop") return;
 		setStatus("running");
-		setResult("");
+		
 	}, [status]);
 
 	const onStop = useCallback(() => {
