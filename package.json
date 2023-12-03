@@ -4,7 +4,7 @@
   "description": "Minimal roulette wheel component. built with React Hooks.",
   "homepage": "https://github.com/camiha/React-Hook-Roulette",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "type": "module",
   "exports": {
