@@ -60,7 +60,7 @@ const App = () => {
 | `color`   | `string?` | Text color for the segment label.                 |
 | `weight`  | `number?` | Determines the segment's size relative to others. |
 
-If you want to set styling globally, please refer to the [StyleOption](####StyleOption) section. (If both are specified, the one specified in rouletteItem takes precedence.)
+If you want to set styling globally, please refer to the [StyleOption](#StyleOption) section. (If both are specified, the one specified in rouletteItem takes precedence.)
 
 ### `useRoulette` Hook
 #### Props
