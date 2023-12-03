@@ -30,7 +30,7 @@ yarn add react-hook-roulette
 import { Roulette, useRoulette } from 'react-hook-roulette';
 
 const App = () => {
-	const data = [
+	const items = [
         { name: "label1" },
         { name: "label2" },
         { name: "label3" },
@@ -38,13 +38,13 @@ const App = () => {
         { name: "label5" },
         { name: "label6" },
 	];
-	const { roulette, onStart, onStop, result } = useRoulette({ items: data });
+	const { roulette, onStart, onStop, result } = useRoulette({ items });
 
 	return (
 		<div>
 			<Roulette roulette={roulette} />
-			<button onClick={onStart}>Start</button>
-			<button onClick={onStop}>Stop</button>
+			<button type="button" onClick={onStart}>Start</button>
+			<button type="button" onClick={onStop}>Stop</button>
 			{result && <div>Result: {result}</div>}
 		</div>
 	);
