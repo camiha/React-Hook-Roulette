@@ -7,6 +7,8 @@ Minimal roulette wheel component. built with React Hooks.
 - Simple API: easy-to-use API for customization.
 
 ## Demo
+live demo available on [stackblitz](https://stackblitz.com/edit/react-hook-roulette-demo)
+
 ![demo](https://github.com/camiha/React-Hook-Roulette/assets/65489256/26785362-c7a2-402e-bdb1-7877531438bd)
 
 ## Setup
