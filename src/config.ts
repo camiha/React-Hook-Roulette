@@ -24,7 +24,7 @@ export const defaultOptions: DefaultRouletteOptions = {
 	acceleration: 1,
 	deceleration: 1,
 	initialAngle: 0,
-	determineAngle: 75,
+	determineAngle: 45,
 	showArrow: true,
 	style: {
 		canvas: {

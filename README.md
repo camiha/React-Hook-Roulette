@@ -86,7 +86,7 @@ If you want to set styling globally, please refer to the [StyleOption](####Style
 | `maxSpeed`          | `number`             | `100`         | Maximum rotation speed.                          |
 | `acceleration`      | `number`             | `1`           | Acceleration rate until reaching max speed.      |
 | `deceleration`      | `number`             | `1`           | Deceleration rate after stopping.                |
-| `determineAngle`    | `number`             | `75`          | Angle for determining the selected item.         |
+| `determineAngle`    | `number`             | `45`          | Angle for determining the selected item.         |
 | `showArrow`         | `boolean`            | `true`        | Controls visibility of the selection arrow.      |
 | `style`             | `StyleOption`        |               | Customize roulette stylings.                     |
 
@@ -125,7 +125,7 @@ const option = {
 	acceleration: 1,
 	deceleration: 1,
 	initialAngle: 0,
-	determineAngle: 75,
+	determineAngle: 45,
 	showArrow: true,
 	style: {
 		canvas: {
