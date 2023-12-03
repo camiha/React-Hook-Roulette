@@ -31,12 +31,12 @@ import { Roulette, useRoulette } from 'react-hook-roulette';
 
 const App = () => {
 	const items = [
-        { name: "label1" },
-        { name: "label2" },
-        { name: "label3" },
-        { name: "label4" },
-        { name: "label5" },
-        { name: "label6" },
+		{ name: "label1" },
+		{ name: "label2" },
+		{ name: "label3" },
+		{ name: "label4" },
+		{ name: "label5" },
+		{ name: "label6" },
 	];
 	const { roulette, onStart, onStop, result } = useRoulette({ items });
 
