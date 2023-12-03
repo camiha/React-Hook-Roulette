@@ -45,7 +45,7 @@ const App = () => {
 			<Roulette roulette={roulette} />
 			<button type="button" onClick={onStart}>Start</button>
 			<button type="button" onClick={onStop}>Stop</button>
-			{result && <div>Result: {result}</div>}
+			{result && <p>Result: {result}</p>}
 		</div>
 	);
 };
