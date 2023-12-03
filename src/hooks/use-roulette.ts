@@ -7,9 +7,15 @@ import { RouletteCanvas, RouletteItem } from "../types";
 
 export const useRoulette = ({
 	items,
+	onSpinUp,
+	onSpinDown,
+	onComplete,
 	options = {},
 }: {
 	items: RouletteItem[];
+	onSpinUp?: () => void;
+	onSpinDown?: () => void;
+	onComplete?: (result: string) => void;
 	options?: Partial<RouletteOptions>;
 }): {
 	roulette: RouletteCanvas;
@@ -69,7 +75,7 @@ export const useRoulette = ({
 	const onStart = useCallback(() => {
 		if (status !== "stop") return;
 		setStatus("running");
-		setResult("");
+		
 	}, [status]);
 
 	const onStop = useCallback(() => {
@@ -93,6 +99,12 @@ export const useRoulette = ({
 	useEffect(() => {
 		if (status !== "running" && status !== "ending") return;
 
+		if (status === "running") {
+			onSpinUp?.();
+		}
+		if (status === "ending") {
+			onSpinDown?.();
+		}
 		const { context } = setupCanvas(canvasRef.current);
 		const cancelAnimation = animateRoulette({
 			rouletteItemList: items,
@@ -104,6 +116,7 @@ export const useRoulette = ({
 			onFinish: (rouletteResult: string) => {
 				setStatus("stop");
 				setResult(rouletteResult);
+				onComplete?.(rouletteResult);
 			},
 		});
 		return () => {
