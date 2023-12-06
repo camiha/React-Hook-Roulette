@@ -1,6 +1,6 @@
 {
   "name": "react-hook-roulette",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Minimal roulette wheel component. built with React Hooks.",
   "homepage": "https://github.com/camiha/React-Hook-Roulette",
   "type": "module",
