@@ -57,6 +57,7 @@ export const useRoulette = ({
 		speed: 0,
 		totalRotation: mergedOptions.initialAngle,
 	});
+	const resultRef = useRef<string>("");
 
 	const geometry = useMemo(() => {
 		const half = mergedOptions.size / 2;
@@ -70,12 +71,10 @@ export const useRoulette = ({
 	}, [mergedOptions]);
 
 	const [status, setStatus] = useState<"stop" | "running" | "ending">("stop");
-	const [result, setResult] = useState("");
 
 	const onStart = useCallback(() => {
 		if (status !== "stop") return;
 		setStatus("running");
-		
 	}, [status]);
 
 	const onStop = useCallback(() => {
@@ -115,14 +114,22 @@ export const useRoulette = ({
 			rouletteRef,
 			onFinish: (rouletteResult: string) => {
 				setStatus("stop");
-				setResult(rouletteResult);
+				resultRef.current = rouletteResult;
 				onComplete?.(rouletteResult);
 			},
 		});
 		return () => {
 			cancelAnimation();
 		};
-	}, [status, geometry, items, mergedOptions]);
+	}, [
+		status,
+		geometry,
+		items,
+		mergedOptions,
+		onComplete,
+		onSpinDown,
+		onSpinUp,
+	]);
 
 	return {
 		roulette: {
@@ -130,7 +137,7 @@ export const useRoulette = ({
 			canvasRef,
 		},
 
-		result,
+		result: resultRef.current,
 		onStart,
 		onStop,
 	};

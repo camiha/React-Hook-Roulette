@@ -1,0 +1,29 @@
+name: Publish
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set node version to 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+          scope       : '@camiha'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.4.0
+      - name: Install deps
+        run: pnpm install
+      - name: Build
+        run: pnpm build
+      - name: Publish
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
