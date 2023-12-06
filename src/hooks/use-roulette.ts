@@ -75,7 +75,6 @@ export const useRoulette = ({
 	const onStart = useCallback(() => {
 		if (status !== "stop") return;
 		setStatus("running");
-		
 	}, [status]);
 
 	const onStop = useCallback(() => {
@@ -122,7 +121,15 @@ export const useRoulette = ({
 		return () => {
 			cancelAnimation();
 		};
-	}, [status, geometry, items, mergedOptions]);
+	}, [
+		status,
+		geometry,
+		items,
+		mergedOptions,
+		onComplete,
+		onSpinDown,
+		onSpinUp,
+	]);
 
 	return {
 		roulette: {
