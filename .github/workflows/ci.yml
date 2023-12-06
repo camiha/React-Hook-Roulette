@@ -1,0 +1,36 @@
+name: 'CI'
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  ci:
+    name: 'CI'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set node version to 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.4.0
+      - name: Install deps
+        run: pnpm install
+      - name: Build
+        run: pnpm build
+      - name: lint
+        run: pnpm check:ci
+      - name: Test
+        run: pnpm coverage
+      - name: Report Coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2
