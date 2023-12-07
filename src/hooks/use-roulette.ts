@@ -9,13 +9,13 @@ export const useRoulette = ({
 	items,
 	onSpinUp,
 	onSpinDown,
-	onComplete,
+	onSpinEnd,
 	options = {},
 }: {
 	items: RouletteItem[];
 	onSpinUp?: () => void;
 	onSpinDown?: () => void;
-	onComplete?: (result: string) => void;
+	onSpinEnd?: (result: string) => void;
 	options?: Partial<RouletteOptions>;
 }): {
 	roulette: RouletteCanvas;
@@ -115,21 +115,13 @@ export const useRoulette = ({
 			onFinish: (rouletteResult: string) => {
 				setStatus("stop");
 				resultRef.current = rouletteResult;
-				onComplete?.(rouletteResult);
+				onSpinEnd?.(rouletteResult);
 			},
 		});
 		return () => {
 			cancelAnimation();
 		};
-	}, [
-		status,
-		geometry,
-		items,
-		mergedOptions,
-		onComplete,
-		onSpinDown,
-		onSpinUp,
-	]);
+	}, [status, geometry, items, mergedOptions, onSpinEnd, onSpinDown, onSpinUp]);
 
 	return {
 		roulette: {
