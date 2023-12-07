@@ -69,7 +69,7 @@ If you want to set styling globally, please refer to the StyleOption section. (I
 | `items`     | `RouletteItem[]`            | Array of items to display on the roulette wheel.        |
 | `onSpinUp`  | `() => void`                | Optional callback executed when the roulette starts spinning. |
 | `onSpinDown`| `() => void`                | Optional callback executed when the roulette starts slowing down. |
-| `onComplete`| `(result: string) => void`  | Optional callback executed when the roulette stops, returning the result. |
+| `onSpinEnd`| `(result: string) => void`  | Optional callback executed when the roulette stops, returning the result. |
 | `options`   | `Partial<RouletteOptions>`  | Optional settings to customize the roulette wheel.      |
 
 #### Return Values
