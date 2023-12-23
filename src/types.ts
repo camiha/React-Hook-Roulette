@@ -44,6 +44,9 @@ interface PieTheme {
 }
 
 interface PieStyle {
+	border: boolean;
+	borderColor: string;
+	borderWidth: number;
 	theme: PieTheme[];
 }
 

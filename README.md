@@ -102,6 +102,9 @@ If you want to set styling globally, please refer to the StyleOption section. (I
 ##### PieStyle
 | Property        | Type                | Description                                       |
 |-----------------|---------------------|---------------------------------------------------|
+| `border`        | `boolean`           | if set `true`, set border for each pie segment    |
+| `borderColor`   | `string`            |                                                   |
+| `borderWidth`   | `number`            |                                                   |
 | `theme`         | `PieTheme[]`        | Array of theme options for the pie segments.      |
 
 ##### LabelStyle
@@ -146,6 +149,9 @@ const option = {
 			defaultColor: "#000",
 		},
 		pie: {
+			border: false,
+			borderColor: '#000',
+			borderWidth: 2,
 			theme: [
 				{
 					bg: "#e0e7ff",
