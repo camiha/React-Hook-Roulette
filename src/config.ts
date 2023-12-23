@@ -42,6 +42,9 @@ export const defaultOptions: DefaultRouletteOptions = {
 			defaultColor: "#000",
 		},
 		pie: {
+			border: false,
+			borderColor: "#000",
+			borderWidth: 2,
 			theme: [
 				{
 					bg: "#e0e7ff",

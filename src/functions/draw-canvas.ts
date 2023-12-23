@@ -99,6 +99,7 @@ export const drawPie = ({
 	pie,
 	segmentStartAngle,
 	anglePerSegment,
+	style,
 }: DrawPie): void => {
 	const startDeg = degreesToCanvasRadians(segmentStartAngle);
 	const endDeg = degreesToCanvasRadians(segmentStartAngle + anglePerSegment);
@@ -114,6 +115,29 @@ export const drawPie = ({
 		true,
 	);
 	context.fill();
+
+	if (
+		style?.pie?.border == null ||
+		style?.pie?.borderWidth == null ||
+		style?.pie?.borderColor == null
+	) {
+		return;
+	}
+	// has border
+	context.beginPath();
+	context.strokeStyle = style.pie.borderColor;
+	context.lineWidth = style.pie.borderWidth;
+	context.moveTo(geometry.center.x, geometry.center.y);
+	context.lineTo(
+		geometry.center.x + geometry.radius * Math.cos(startDeg),
+		geometry.center.y + geometry.radius * Math.sin(startDeg),
+	);
+	context.moveTo(geometry.center.x, geometry.center.y);
+	context.lineTo(
+		geometry.center.x + geometry.radius * Math.cos(endDeg),
+		geometry.center.y + geometry.radius * Math.sin(endDeg),
+	);
+	context.stroke();
 };
 
 export interface DrawRoulette {
@@ -181,6 +205,30 @@ export const drawRoulette = ({
 		});
 		segmentEndAngle = segmentStartAngle;
 	}
+
+	// has border
+
+	if (
+		style?.pie?.border == null ||
+		style?.pie?.borderWidth == null ||
+		style?.pie?.borderColor == null
+	) {
+		return;
+	}
+
+	const lineWidth = style.pie.borderWidth;
+	context.beginPath();
+	context.strokeStyle = style.pie.borderColor;
+	context.lineWidth = lineWidth;
+	context.arc(
+		geometry.center.x,
+		geometry.center.y,
+		geometry.radius - lineWidth / 2,
+		0,
+		Math.PI * 2,
+		true,
+	);
+	context.stroke();
 };
 
 interface DrawCanvas {
