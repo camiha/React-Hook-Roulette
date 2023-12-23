@@ -42,6 +42,7 @@ export const useRoulette = ({
 				},
 				pie: {
 					...defaultOptions.style.pie,
+					...options.style?.pie,
 					theme: [
 						...(options.style?.pie?.theme || defaultOptions.style.pie.theme),
 					],
