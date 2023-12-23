@@ -117,7 +117,7 @@ export const drawPie = ({
 	context.fill();
 
 	if (
-		style?.pie?.border == null ||
+		style?.pie?.border === false ||
 		style?.pie?.borderWidth == null ||
 		style?.pie?.borderColor == null
 	) {
@@ -209,7 +209,7 @@ export const drawRoulette = ({
 	// has border
 
 	if (
-		style?.pie?.border == null ||
+		style?.pie?.border === false ||
 		style?.pie?.borderWidth == null ||
 		style?.pie?.borderColor == null
 	) {
